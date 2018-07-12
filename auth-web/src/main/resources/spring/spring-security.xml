@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+xmlns:beans="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+	
+	<http pattern="/login.jsp" security="none"></http>
+	
+	<http auto-config="true">
+		<intercept-url pattern="/**" access="hasRole('ROLE_USER')"/>
+		
+		<csrf disabled="true"/>
+		
+		<form-login login-page="/login.jsp" 
+					always-use-default-target="true"
+					username-parameter="s_username"
+					password-parameter="s_password"
+					login-processing-url="/login.action"
+					default-target-url="/index.jsp"
+					authentication-failure-url="/login.jsp?err=1"  />
+					
+		<logout logout-url="/logout.action" 
+				delete-cookies="JSESSIONID" 
+				invalidate-session="true" 
+				logout-success-url="/login.jsp"/>			
+				
+	</http>
+	
+	<authentication-manager >
+		<authentication-provider user-service-ref="logonService">
+			<password-encoder ref="plainTextEncoder"/>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<beans:bean class="com.za.service.LogonService" id="logonService" />
+	<beans:bean id = "plainTextEncoder" class="com.za.common.PlainTextPasswordEncoder"/>
+</beans:beans>		

@@ -1,0 +1,4 @@
+com\za\common\SessionUser.class
+com\za\service\LogonService.class
+com\za\common\PlainTextPasswordEncoder.class
+com\za\controller\PrintController.class

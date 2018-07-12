@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry    location="G:/.m2/repository/mysql/mysql-connector-java/5.1.34/mysql-connector-java-5.1.34.jar"/>
+  <context id="context1">
+    <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/auth" 
+    	driverClass="com.mysql.jdbc.Driver" password="123456" userId="root" />
+    <javaModelGenerator targetPackage="com.za.pojo" targetProject="auth-pojo" />
+    <sqlMapGenerator targetPackage="com.za.api.dao" targetProject="auth-api-impl" />
+    <javaClientGenerator targetPackage="com.za.api.dao" targetProject="auth-api-impl" type="XMLMAPPER" />
+    
+    <table schema="auth" tableName="za_function"></table>
+    <!-- 
+    <table schema="auth" tableName="za_user_role"></table>
+    <table schema="auth" tableName="za_function"></table>
+    <table schema="auth" tableName="za_role"></table>
+    <table schema="auth" tableName="za_role_func"></table>
+    <table schema="auth" tableName="za_user"></table>
+     -->
+  </context>
+</generatorConfiguration>

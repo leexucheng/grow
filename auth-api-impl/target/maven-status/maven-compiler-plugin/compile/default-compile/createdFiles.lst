@@ -1,0 +1,10 @@
+com\za\api\main\DubboMain.class
+com\za\api\dao\ZaUserMapper.class
+com\za\api\dao\ZaFunctionMapper.class
+com\za\api\dao\ZaUserRoleMapper.class
+com\za\api\redis\RedisCacheTransfer.class
+com\za\api\dao\ZaRoleMapper.class
+com\za\api\redis\SerializeUtil.class
+com\za\api\redis\RedisCache.class
+com\za\api\dao\ZaRoleFuncMapper.class
+com\za\api\imp\LoginServiceImp.class
